@@ -1,0 +1,19 @@
+﻿@model Receptor
+
+@{
+    ViewBag.Title = "Agregar Receptor";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Nombre" class="form-label">Nombre</label>
+        <input asp-for="Nombre" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="RFC" class="form-label">RFC</label>
+        <input asp-for="RFC" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>

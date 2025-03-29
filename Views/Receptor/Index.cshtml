@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Generador de Facturas";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center">@ViewBag.Title</h1>
+
+    <h2 class="mt-4">Generador de Facturas  Electronicas</h2>
+
+    <form method="get" action="@Url.Action("Index", "Receptor")">
+        <div class="mb-3">
+            <label for="buscarReceptor" class="form-label">Buscar Receptor</label>
+            <input type="text" class="form-control" id="buscarReceptor" name="termino" placeholder="Ingrese el nombre o RFC del receptor" value="@ViewBag.Termino">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    @if (Model != null && Model.Any())
+    {
+        <h3 class="mt-4">Resultados</h3>
+        <ul class="list-group mt-2">
+            @foreach (var receptor in Model)
+            {
+                <li class="list-group-item">@receptor.Nombre (@receptor.RFC)</li> 
+
+            }
+        </ul>
+    }
+    else if (!string.IsNullOrEmpty(ViewBag.Termino))
+    {
+        <p class="mt-4 text-danger">No se encontraron resultados.</p>
+    }
+    <a asp-action="Create" class="btn btn-primary mb-3">Agregar Receptor</a>
+
+</div>
