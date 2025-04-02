@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebAppSAT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6eeba3b8b498e99f115dc98652baf845bbf06ca0")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebAppSAT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebAppSAT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

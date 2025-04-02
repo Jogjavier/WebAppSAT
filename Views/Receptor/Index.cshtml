@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<WebAppSAT.Models.Receptor>
+@{
     ViewBag.Title = "Generador de Facturas";
 }
 
@@ -21,7 +22,7 @@
         <ul class="list-group mt-2">
             @foreach (var receptor in Model)
             {
-                <li class="list-group-item">@receptor.Nombre (@receptor.RFC)</li> 
+               <li class="list-group-item">@receptor.Nombre (@receptor.RFC)</li>
 
             }
         </ul>

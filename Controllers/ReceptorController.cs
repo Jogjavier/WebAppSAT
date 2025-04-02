@@ -13,16 +13,20 @@ public class ReceptorController : Controller
         _context = context;
     }
 
+    
     public async Task<IActionResult> Index(string termino)
     {
-        var receptores = string.IsNullOrEmpty(termino)
-            ? await _context.Receptores.ToListAsync()
-            : await _context.Receptores
+        List<Receptor> receptores = new List<Receptor>();
+
+        if (!string.IsNullOrEmpty(termino))
+        {
+            receptores = await _context.Receptores
                 .Where(r => r.Nombre.Contains(termino) || r.RFC.Contains(termino))
                 .ToListAsync();
+        }
 
         ViewBag.Termino = termino;
-        return View(receptores);
+        return View("Index", receptores);
     }
 
     public IActionResult Create()
@@ -42,4 +46,3 @@ public class ReceptorController : Controller
         return View(receptor);
     }
 }
-
