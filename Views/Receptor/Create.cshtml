@@ -1,4 +1,4 @@
-﻿@model Receptor
+﻿@model WebAppSAT.Models.Receptor
 
 @{
     ViewBag.Title = "Agregar Receptor";
@@ -11,9 +11,47 @@
         <label asp-for="Nombre" class="form-label">Nombre</label>
         <input asp-for="Nombre" class="form-control" required />
     </div>
+
     <div class="mb-3">
         <label asp-for="RFC" class="form-label">RFC</label>
         <input asp-for="RFC" class="form-control" required />
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
+
+    <div class="mb-3">
+        <label asp-for="UsoCFDI" class="form-label">Uso de CFDI</label>
+        <input asp-for="UsoCFDI" class="form-control" required />
+    </div>
+
+    <h3>Dirección</h3>
+
+    <div class="mb-3">
+        <label asp-for="DireccionReceptor.Calle" class="form-label">Calle</label>
+        <input asp-for="DireccionReceptor.Calle" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DireccionReceptor.NumExt" class="form-label">Número Exterior</label>
+        <input asp-for="DireccionReceptor.NumExt" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DireccionReceptor.NumInt" class="form-label">Número Interior</label>
+        <input asp-for="DireccionReceptor.NumInt" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DireccionReceptor.Colonia" class="form-label">Colonia</label>
+        <input asp-for="DireccionReceptor.Colonia" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DireccionReceptor.Municipio" class="form-label">Municipio</label>
+        <input asp-for="DireccionReceptor.Municipio" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DireccionReceptor.Estado" class="form-label">Estado</label>
+        <input asp-for="DireccionReceptor.Estado" class="form-control" required />
+    </div>
+    <div class="mb-3">
+        <label asp-for="DireccionReceptor.CodigoPostal" class="form-label">Código Postal</label>
+        <input asp-for="DireccionReceptor.CodigoPostal" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar Registro</button>
 </form>

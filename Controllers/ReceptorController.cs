@@ -31,18 +31,33 @@ public class ReceptorController : Controller
 
     public IActionResult Create()
     {
-        return View();
+        var receptor = new Receptor
+        {
+            DireccionReceptor = new DireccionReceptor() 
+        };
+        return View(receptor);
     }
 
     [HttpPost]
     public async Task<IActionResult> Create(Receptor receptor)
     {
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
-            _context.Receptores.Add(receptor);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
+            
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine(error.ErrorMessage);
+            }
+            return View(receptor);
         }
-        return View(receptor);
+
+        if (receptor.DireccionReceptor != null)
+        {
+            receptor.DireccionReceptor.Receptor = receptor;
+        }
+
+        _context.Receptores.Add(receptor);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index");
     }
 }
